@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Recibos e Vale Pallet</title>
+    <title>Gerador de Recibos e Vale Palete</title>
     <style>
         * {
             box-sizing: border-box;
@@ -379,21 +379,21 @@
 
 <body>
     <div class="container">
-        <h2>Gerador de Recibos e Vale Pallet</h2>
+        <h2>Gerador de Recibos e Vale Palete</h2>
 
         <div class="opcoes">
             <div class="opcao-group">
                 <label for="tipoDocumento">Tipo de Documento:</label>
                 <select id="tipoDocumento" onchange="alterarTipo()">
                     <option value="recibo">Recibo</option>
-                    <option value="vale">Vale Pallet</option>
+                    <option value="vale">Vale Palete</option>
                 </select>
             </div>
 
             <div class="opcao-group">
                 <label for="empresa">Empresa:</label>
                 <select id="empresa" onchange="alterarEmpresa()">
-                    <option value="dicon">DICON</option>
+                    <option value="dicon">Dicon</option>
                     <option value="trindade">Trindade</option>
                 </select>
             </div>
@@ -426,15 +426,15 @@
                 <input type="date" id="dataRecibo">
             </div>
 
-            <!-- Campos para Vale Pallet -->
+            <!-- Campos para Vale Palete -->
             <div id="camposVale" class="campos-vale">
-                <label for="nomeClienteVale">CLIENTE:</label>
+                <label for="nomeClienteVale">Cliente:</label>
                 <input type="text" id="nomeClienteVale" placeholder="Digite o nome do cliente">
 
-                <label for="nfVale">NF:</label>
-                <input type="number" id="nfVale" placeholder="Digite o número da NF">
+                <label for="nfVale">NFe:</label>
+                <input type="number" id="nfVale" placeholder="Digite o número da NFe">
 
-                <label for="quantidadePaletesVale">QTDE DE PALLETS:</label>
+                <label for="quantidadePaletesVale">Qtd de Paletes:</label>
                 <input type="number" id="quantidadePaletesVale" placeholder="Digite a quantidade de paletes">
 
                 <label for="dataVale">Data (deixe em branco para usar data atual):</label>
@@ -465,13 +465,13 @@
 
     <div class="author">Criado por: Daniel Rocha e alterado pela Dicon</div>
     <div class="aviso-fixo">
-        ⚠️ Aos sábados o procedimento deve ser feito pela <strong>DICON</strong>. Nos demais dias use <strong>Trindade</strong>. Garanta que a empresa esteja correta antes de gerar.
+        ⚠️ Aos sábados o procedimento deve ser feito pela <strong>Dicon</strong>. Nos demais dias use <strong>Trindade</strong>. Garanta que a empresa esteja correta antes de gerar.
     </div>
 
     <div class="popup-aviso" id="popupSabado">
         <div class="popup-conteudo">
             <h4>Atenção para hoje!</h4>
-            <p>Todo <strong>sábado</strong> o processo deve ser feito usando a empresa <strong>DICON</strong>. Verifique antes de continuar.</p>
+            <p>Todo <strong>sábado</strong> o processo deve ser feito usando a empresa <strong>Dicon</strong>. Verifique antes de continuar.</p>
             <button onclick="fecharPopupSabado()">Entendi</button>
         </div>
     </div>
@@ -612,7 +612,7 @@
             } else {
                 camposRecibo.classList.remove('ativo');
                 camposVale.classList.add('ativo');
-                titulo.textContent = 'RECIBO DE VALE PALLET';
+                titulo.textContent = 'RECIBO DE VALE PALETE';
                 valorTotal.style.display = 'none';
             }
         }
@@ -681,13 +681,13 @@
                 const dataInput = document.getElementById('dataVale').value;
                 const dataFormatada = formatarData(dataInput);
 
-                const observacao = `OBS: Ficamos com <strong>${quantidadePaletes}</strong> pallets.`;
+                const observacao = `OBS: Ficamos com <strong>${quantidadePaletes}</strong> paletes.`;
 
                 const larguraLogo = empresa === 'trindade' ? '360' : '460';
                 for (let i = 0; i < numVias; i++) {
                     const recibo = `
                         <div class="recibo">
-                            <h3>RECIBO DE VALE PALLET</h3>
+                            <h3>RECIBO DE VALE PALETE</h3>
                             <div class="imagemRecibo" style="display: flex; justify-content: center;">
                                 <img src="${imagemSrc}" alt="Imagem do Recibo" width="${larguraLogo}">
                             </div>
@@ -714,7 +714,7 @@
                 <html>
                     <head>
                         <meta charset="UTF-8">
-                        <title>${tipo === 'recibo' ? 'Recibo' : 'Vale Pallet'}</title>
+                        <title>${tipo === 'recibo' ? 'Recibo' : 'Vale Palete'}</title>
                         <style>
                             body {
                                 font-family: Arial, sans-serif;
